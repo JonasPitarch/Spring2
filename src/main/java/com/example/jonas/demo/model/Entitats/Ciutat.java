@@ -3,7 +3,7 @@ package com.example.jonas.demo.model.Entitats;
 import jakarta.persistence.*;
 
     @Entity
-    @Table
+    @Table (name = "CIUTAT")
     public class Ciutat {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
