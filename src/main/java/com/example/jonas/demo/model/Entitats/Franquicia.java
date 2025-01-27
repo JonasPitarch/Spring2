@@ -2,6 +2,8 @@ package com.example.jonas.demo.model.Entitats;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table
 public class Franquicia {
@@ -33,4 +35,8 @@ public class Franquicia {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    @ManyToMany(mappedBy = "franquicias")
+    private List<Ciutat> ciudades;
 }
+

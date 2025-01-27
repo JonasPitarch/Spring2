@@ -9,14 +9,19 @@ public class Provincia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long ID;
     @Column(nullable = false)
-    String Nom;
+    String nom;
+    @ManyToOne
+    @JoinColumn(name = "ID_PAIS", nullable = false)
+    private Pais pais;
 
     public Provincia(){
 
     }
-    public Provincia(long ID, String nom) {
+
+    public Provincia(long ID, String nom, Pais pais) {
         this.ID = ID;
-        Nom = nom;
+        this.nom = nom;
+        this.pais = pais;
     }
 
     public long getID() {
@@ -28,10 +33,18 @@ public class Provincia {
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
+    }
+
+    public Pais getPais() {
+        return pais;
+    }
+
+    public void setPais(Pais pais) {
+        this.pais = pais;
     }
 }

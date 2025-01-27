@@ -2,7 +2,9 @@ package com.example.jonas.demo.model.Entitats;
 
 import jakarta.persistence.*;
 
-    @Entity
+import java.util.List;
+
+@Entity
     @Table (name = "CIUTAT")
     public class Ciutat {
         @Id
@@ -70,5 +72,14 @@ import jakarta.persistence.*;
         public void setId(Long id) {
             this.id = id;
         }
-    }
+
+        @ManyToMany
+        @JoinTable(
+                name = "PROVINCIA_CIUDAD",
+                joinColumns = @JoinColumn(name = "ID_CIUDAD"),
+                inverseJoinColumns = @JoinColumn(name = "ID_FRANQUICIA")
+        )
+        private List<Franquicia> franquicias;
+}
+
 
